@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int no_socks;
+		System.out.println("Number of socks pair ID's : ");
+		no_socks=sc.nextInt();
+		int[] arr=new int[no_socks];
+		Map<Integer,Integer> mp=new HashMap<Integer,Integer>();
+		for(int i=0;i<no_socks;i++) {
+		    arr[i]=sc.nextInt();
+		    if(mp.containsKey(arr[i])) {
+		        mp.put(arr[i],mp.get(arr[i])+1);
+		    } else {
+		        mp.put(arr[i],1);
+		    }
+		}
+		int cnt=0;
+		for(Map.Entry<Integer,Integer> m : mp.entrySet()) {
+		    if(m.getValue()%2!=0) 
+		    cnt++;
+		}
+		System.out.print("Number of singular socks : "+cnt);
+		
+	}
+}
